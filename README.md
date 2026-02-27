@@ -74,6 +74,6 @@ We are aiming for grade A
 [\[1\]](https://www.zotero.org/google-docs/?uNgpyK)	[X. Yang och Y. Ouyang, ”Real-Time Ray Traced Caustics”, i *Ray Tracing Gems II: Next Generation Real-Time Rendering with DXR, Vulkan, and OptiX*, A. Marrs, P. Shirley, och I. Wald, Red., Berkeley, CA: Apress, 2021, s. 469–497. doi: 10.1007/978-1-4842-7185-8\_30.](https://www.zotero.org/google-docs/?uNgpyK)   
 [\[2\]](https://www.zotero.org/google-docs/?uNgpyK)	[”Caustic (optics)”, *Wikipedia*. 08 februari 2026\. Åtkomstdatum: 20 februari 2026\. \[Online\]. Tillgänglig vid: https://en.wikipedia.org/w/index.php?title=Caustic\_(optics)\&oldid=1337319409](https://www.zotero.org/google-docs/?uNgpyK) 
 
-[image1]: 
+[image1]: img/caustic_wiki
 
-[image2]: 
+[image2]: img/light_mesh
