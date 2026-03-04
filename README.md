@@ -1,3 +1,4 @@
+layout: default
 # First blog Post!
 
 ## 1\. Background
