@@ -1,4 +1,4 @@
-Colour Dispersion attempts: 
+# Colour Dispersion attempts: 
 
 ## Clipping Colours
 
