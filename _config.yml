@@ -1,8 +1,8 @@
-layout: default
 markdown: kramdown
 
 kramdown:
   input: GFM
   math_engine: mathjax
+  math_engine_opts:
+    preview: true
   syntax_highlighter: rouge
-  
