@@ -6,6 +6,12 @@ Below is a recording of the caustics simulation running in Blender.
   <source src="/DD1354-project/videos/demo.mp4" type="video/mp4">
 </video>
 
+# Let the user change to stuff!
+
+Alright, now that we have some refraction, lets introduce some user control. Because Blender’s geometry nodes are procedural, the user is able to adjust things like the angle of sunlight and resolution, making the simulation update automatically without having to change specific aspects of it. We implemented simple controls for seeing/hiding aspects of the simulation, changing the sun angle and increasing or decreasing the resolution level of the source plane as well as the IOR of the medium. The IOR did however not affect the dispersion. Outside of the geometry nodes, the user can also control the ocean plane by adjusting settings in the ocean modifier, which will impact the geometry nodes simulation.
+
+![][image11] 
+
 # Colour Dispersion attempts: 
 
 ## Clipping Colours
@@ -23,8 +29,21 @@ So, let's try to render each colour layer separately, and add them on top of eac
 ![][image3]  
 ![][image4]
 
+The colours and the indices of refraction used were sampled from a Silicann Systems blog post on converting wavelengths to RGB colour values and a website called [refractiveindex.info](http://refractiveindex.info), which offered a way to get water’s refractive indices for different wavelengths.
+
+| Colour | Wavelength | IOR | Hex code |
+| :---: | :---: | :---: | :---: |
+| Violet | 400 nm | 1.3390 | \#6E00A6FF |
+| Blue | 440 nm | 1.3374 | \#0000FFFF |
+| Green | 510 nm | 1.3346 | \#00FF00FF |
+| Yellow | 580 nm | 1.3328 | \#FFFF00FF |
+| Orange | 610 nm | 1.3320 | \#FF8900FF |
+| Red | 645 nm | 1.3312 | \#FF0000FF |
+
 Composite image of different wavelengths layered on top of each other.  
 This seems to work well, although it is only really visible when really zoomed in.
+
+
 
 # Visualised Rays\!
 
@@ -123,3 +142,5 @@ We aim to reach as high of a grade as possible, ideally an A.
 [image9]: img/light_mesh
 
 [image10]: img/caustics_video_example.png
+
+[image11]: img/Settings.png
