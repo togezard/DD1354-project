@@ -61,10 +61,12 @@ The youtube tutorial has been followed. We now have the first rendition of blend
 
 ## 1\. Background
 
-As light passes through water, metallic or transparent surfaces, the refraction of light causes a phenomenon known as caustics. Caustics are famously difficult to simulate with a limited time budget \[1\], leading to them being ignored or roughly handled.
+As light passes through water, metallic or transparent surfaces, the refraction of light causes a phenomenon known as caustics. Caustics are famously difficult to simulate with a limited time budget \[7\], leading to them being ignored or roughly handled.
 
 ![][image7]  
-Fig 1: Caustics created from light passing through the surface of the water \[2\].
+<p align="center">
+Fig 1: Caustics created from light passing through the surface of the water \[10\].
+</p>
 
 The brighter parts of the surface are where the light converges, while the darker parts are where light diverges, as can be seen in Fig 2\. The refraction happens according to Snell’s law: 
 
@@ -73,18 +75,22 @@ $n_1 \sin(\theta_1) = n_2 \sin(\theta_2)$
 Where n represents the refraction index and θ represents the angle of light as well as the refraction angle. What causes the different wavelengths of light to refract differently, which can be seen in Fig 1, is that water has different refractive indices for different wavelengths.
 
 ![][image8]  
-Fig 2: How light diverges and converges to create caustics\[5\].
+<p align="center">
+Fig 2: How light diverges and converges to create caustics\[3\].
+</p>
 
 ## 2\. Implementation specifics (as many as possible)
 
-The main implementation will be created in Blender using a method showcased by the YouTube-channel 3Dan \[3\]. The approach is done through Blender’s geometry nodes feature and uses a similar mesh-based projection methodology to Evan Wallace’s 2011 WebGL based realtime water and caustics simulation \[4\]. In this method, every vertex of a mesh is treated like a light ray and traced down to a different mesh, where the triangles (or rectangles, depending on the geometry chosen) with a smaller area represent where the light is brighter and larger area where the light is darker.
+The main implementation will be created in Blender using a method showcased by the YouTube-channel 3Dan \[1\]. The approach is done through Blender’s geometry nodes feature and uses a similar mesh-based projection methodology to Evan Wallace’s 2011 WebGL based realtime water and caustics simulation \[6\]. In this method, every vertex of a mesh is treated like a light ray and traced down to a different mesh, where the triangles (or rectangles, depending on the geometry chosen) with a smaller area represent where the light is brighter and larger area where the light is darker.
 
 ![][image9]  
-Fig 3: Mesh based light refraction method \[4\].
+<p align="center">
+Fig 3: Mesh based light refraction method \[6\].
+</p>
 
 This creates a faster way of simulating caustics than true ray tracing, however the method in 3Dan’s video has some limitations. For one, it does not visualise the paths of the light rays, nor does it simulate the light dispersion in a physically accurate way. This we feel that we can improve on through our project.
 
-For accurate light dispersion we will either be trying to use Snell’s law for different wavelengths individually or take inspiration from another project from this course \[6\] and use the Sellmeier equation:
+For accurate light dispersion we will either be trying to use Snell’s law for different wavelengths individually or take inspiration from another project from this course \[9\] and use the Sellmeier equation:
 
 $$ n^2(\lambda) = 1 + \sum_i \frac{B_i \lambda^2}{\lambda^2 - C_i} $$
 
@@ -95,7 +101,9 @@ where C and B represent the Sellmeier coefficients for water and air.
 The main part of the system will be using the method described in Fig 3, with Blender’s ocean modifier being used to create the waves. The base of how this will look can be seen in Fig 4 bwloe. From there we will add lines that show the projection of vertices as well as implement physically accurate dispersion based on the different refractive indexes of water for different wave lengths.
 
 ![][image10]  
-Fig 4: Screenshot from 3Dan’s video tutorial on simulating caustics in Blender \[3\].
+<p align="center">
+Fig 4: Screenshot from 3Dan’s video tutorial on simulating caustics in Blender \[1\].
+</p>
 
 We also want to add more user control to further explore the simulation of caustics, where the user will be able to control:
 
@@ -117,12 +125,27 @@ We aim to reach as high of a grade as possible, ideally an A.
 
 ## Bibliography
 
-\[1\]	X. Yang och Y. Ouyang, ”Real-Time Ray Traced Caustics”, i *Ray Tracing Gems II: Next Generation Real-Time Rendering with DXR, Vulkan, and OptiX*, A. Marrs, P. Shirley, och I. Wald, Red., Berkeley, CA: Apress, 2021, s. 469–497. doi: 10.1007/978-1-4842-7185-8\_30.   
-\[2\]	”Caustic (optics)”, *Wikipedia*. 08 februari 2026\. Åtkomstdatum: 20 februari 2026\. \[Online\]. Tillgänglig vid: https://en.wikipedia.org/w/index.php?title=Caustic\_(optics)\&oldid=1337319409   
-\[3\]	3Dan, *Simulating Caustics In Blender*, (07 oktober 2025). Åtkomstdatum: 27 februari 2026\. \[Online Video\]. Tillgänglig vid: https://www.youtube.com/watch?v=EOGS73npKsI   
-\[4\]	E. Wallace, ”Rendering Realtime Caustics in WebGL”, Medium. Åtkomstdatum: 27 februari 2026\. \[Online\]. Tillgänglig vid: https://medium.com/@evanwallace/rendering-realtime-caustics-in-webgl-2a99a29a0b2c   
-\[5\]	L. Jacobson och A. Stenkrona, ”Water Caustics and Water Simulation”, 2020\. \[Online\]. Tillgänglig vid: https://fileadmin.cs.lth.se/cs/Education/EDAN35/projects/20ArneLinus\_Water.pdf   
-\[6\]	”Simulating optics”, Simulating optics. Åtkomstdatum: 27 februari 2026\. \[Online\]. Tillgänglig vid: https://simulatingoptics.wordpress.com/   
+[1] **3Dan**, *Simulating Caustics In Blender*, 07 oktober 2025. Åtkomstdatum: 27 februari 2026. [Online Video]. Tillgänglig vid: https://www.youtube.com/watch?v=EOGS73npKsI  
+
+[2] **Jiawei Huang, Hajime Tanaka, Taku Komura, och Yoshifumi Kitamura**, *Online Photon Guiding with 3D Gaussians for Caustics Rendering*, 2024. Åtkomstdatum: 27 februari 2026. [Online]. Tillgänglig vid: https://doi.org/10.48550/arXiv.2403.03641  
+
+[3] **Linus Jacobson och Arne Stenkrona**, *Water Caustics and Water Simulation*, 2020. Åtkomstdatum: 27 februari 2026. [Online]. Tillgänglig vid: https://fileadmin.cs.lth.se/cs/Education/EDAN35/projects/20ArneLinus_Water.pdf  
+
+[4] **Mikhail N. Polyanskiy**, *Refractiveindex.info database of optical constants*, Sci. Data 11, 1 (januari 2024), 94. Åtkomstdatum: 27 februari 2026. [Online]. Tillgänglig vid: https://doi.org/10.1038/s41597-023-02898-2  
+
+[5] **Jiaxiong Qiu, Ze-Xin Yin, Ming-Ming Cheng, och Bo Ren**, *NeRC: Rendering Planar Caustics by Learning Implicit Neural Representations*, IEEE Trans. Vis. Comput. Graph. 30, 7 (juli 2024), 4339–4348. Åtkomstdatum: 27 februari 2026. [Online]. Tillgänglig vid: https://doi.org/10.1109/TVCG.2023.3259382  
+
+[6] **Evan Wallace**, *Rendering Realtime Caustics in WebGL*, Medium, 2016. Åtkomstdatum: 27 februari 2026. [Online]. Tillgänglig vid: https://medium.com/@evanwallace/rendering-realtime-caustics-in-webgl-2a99a29a0b2c  
+
+[7] **Xueqing Yang och Yaobin Ouyang**, *Real-Time Ray Traced Caustics*, i *Ray Tracing Gems II: Next Generation Real-Time Rendering with DXR, Vulkan, and OptiX*, A. Marrs, P. Shirley, och I. Wald, red., Berkeley, CA: Apress, 2021, s. 469–497. Åtkomstdatum: 27 februari 2026. [Online]. Tillgänglig vid: https://doi.org/10.1007/978-1-4842-7185-8_30  
+
+[8] *Converting Wavelengths to RGB color values*, 2021. Åtkomstdatum: 11 mars 2026. [Online]. Tillgänglig vid: https://www.en.silicann.com/blog/post/wavelength-color/  
+
+[9] *Simulating optics*, 2022. Åtkomstdatum: 27 februari 2026. [Online]. Tillgänglig vid: https://simulatingoptics.wordpress.com/  
+
+[10] *Caustic (optics)*, Wikipedia, 2026. Åtkomstdatum: 20 februari 2026. [Online]. Tillgänglig vid: https://en.wikipedia.org/w/index.php?title=Caustic_(optics)&oldid=1337319409  
+
+[11] *IOR / Index of Refraction List*, Pixel and Poly, 2026. Åtkomstdatum: 11 mars 2026. [Online]. Tillgänglig vid: https://pixelandpoly.com/ior.html    
 
 [image1]: img/CLIPPING_1.png
 
