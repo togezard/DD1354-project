@@ -1,8 +1,7 @@
-.page-content {
-  max-width: 600px;
+main, .page-content, .wrapper {
+  max-width: 750px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 20px;
   line-height: 1.6;
 }
 
