@@ -28,7 +28,9 @@ It helped a bit, however the problem of clipping random mess still persists.
 So, let's try to render each colour layer separately, and add them on top of each other.  
 ![][image3]  
 ![][image4]
-
+<p align="center">
+Composite image of different wavelengths layered on top of each other.  
+</p>
 The colours and the indices of refraction used were sampled from a Silicann Systems blog post on converting wavelengths to RGB colour values and a website called [refractiveindex.info](http://refractiveindex.info), which offered a way to get water’s refractive indices for different wavelengths.
 
 | Colour | Wavelength | IOR | Hex code |
@@ -40,7 +42,6 @@ The colours and the indices of refraction used were sampled from a Silicann Syst
 | Orange | 610 nm | 1.3320 | \#FF8900FF |
 | Red | 645 nm | 1.3312 | \#FF0000FF |
 
-Composite image of different wavelengths layered on top of each other.  
 This seems to work well, although it is only really visible when really zoomed in.
 
 
