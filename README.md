@@ -1,3 +1,11 @@
+## Caustics Simulation Demo
+
+Below is a recording of the caustics simulation running in Blender.
+
+<video width="800" controls>
+  <source src="/DD1354-project/videos/demo.mp4" type="video/mp4">
+</video>
+
 # Colour Dispersion attempts: 
 
 ## Clipping Colours
